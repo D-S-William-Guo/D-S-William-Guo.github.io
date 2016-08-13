@@ -5,15 +5,41 @@
   
   <title>郭剑威的小博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录！记录！记录！">
-<meta property="og:type" content="website">
+  <meta name="description" content="CSK跟踪算法的梳理##CSK算法
+
+CSK是2012年ECCV发表的一篇非常高效的运动跟踪文章（150FPS左右），其分析是在灰度空间上进行的。原文名称：《Exploiting the Circulant Structure ofTracking-by-detection with Kernels》。代码在作者主页可以下载到。毕竟文章是2012年发表的，肯定有他的缺陷，如果想看最新进展移步CN算">
+<meta property="og:type" content="article">
 <meta property="og:title" content="郭剑威的小博客">
-<meta property="og:url" content="http://D-S-William-Guo.github.io/index.html">
+<meta property="og:url" content="http://D-S-William-Guo.github.io/2016/08/13/160823CSK/index.html">
 <meta property="og:site_name" content="郭剑威的小博客">
-<meta property="og:description" content="记录！记录！记录！">
+<meta property="og:description" content="CSK跟踪算法的梳理##CSK算法
+
+CSK是2012年ECCV发表的一篇非常高效的运动跟踪文章（150FPS左右），其分析是在灰度空间上进行的。原文名称：《Exploiting the Circulant Structure ofTracking-by-detection with Kernels》。代码在作者主页可以下载到。毕竟文章是2012年发表的，肯定有他的缺陷，如果想看最新进展移步CN算">
+<meta property="og:image" content="http://b143.photo.store.qq.com/psb?/V10eOOb30eRKzr/vMmKGCSrVB3jUoYz7Psj0C8CRId.r5M9ddhdqcXXdNQ!/b/dI8AAAAAAAAA&bo=NwOAAgAAAAAFB5I!&rf=viewer_4">
+<meta property="og:image" content="http://b227.photo.store.qq.com/psb?/V10eOOb30eRKzr/VytJukOFh6OpwR2V25GLelK38uyjK2FnwequLmYQw8o!/b/dOMAAAAAAAAA&bo=YQEhAAAAAAAFB2U!&rf=viewer_4">
+<meta property="og:image" content="http://a2.qpic.cn/psb?/V10eOOb30eRKzr/jgwacTMBpEYwmPLattE9w*ljoR3G7TBmN3pHn1LdIsY!/b/dAwBAAAAAAAA&bo=rQE8AAAAAAAFALM!&rf=viewer_4">
+<meta property="og:image" content="http://a3.qpic.cn/psb?/V10eOOb30eRKzr/hpM0ExzsLBCwUfzWnO9KieSDo8BbAeluEc1CAAxSb2I!/b/dHABAAAAAAAA&bo=eAAeAAAAAAAFAEU!&rf=viewer_4">
+<meta property="og:image" content="http://a3.qpic.cn/psb?/V10eOOb30eRKzr/YwKtDka9E07kWrLHsEoljTVx4s*eJ34xeAzEEvXZYtQ!/b/dHMBAAAAAAAA&bo=ewAdAAAAAAAFAEU!&rf=viewer_4">
+<meta property="og:image" content="http://a3.qpic.cn/psb?/V10eOOb30eRKzr/1yG0n4J*zki.6sDQzZDBZJPdqv1JQSso3ms9fU2Ekcc!/b/dHABAAAAAAAA&bo=pgAqAAAAAAAFAK8!&rf=viewer_4">
+<meta property="og:image" content="http://a2.qpic.cn/psb?/V10eOOb30eRKzr/8PSwSMfWReIPYcnoNFOgBUcfFv.ZxYMhcq*s57MPf30!/b/dAwBAAAAAAAA&bo=KAGJAAAAAAAFAIM!&rf=viewer_4">
+<meta property="og:image" content="http://a2.qpic.cn/psb?/V10eOOb30eRKzr/cP9X*g.buG9o9JoYtMeUBvrpQPb**60HH6Ijy7p5sCc!/b/dHIBAAAAAAAA&bo=BgEsAAAAAAAFAAg!&rf=viewer_4">
+<meta property="og:image" content="http://a2.qpic.cn/psb?/V10eOOb30eRKzr/wQ51w*QZuIVMib8nzrqA0btGqFI7jbugSNEdChL2rvQ!/b/dOUAAAAAAAAA&bo=.QApAAAAAAAFAPM!&rf=viewer_4">
+<meta property="og:image" content="http://a1.qpic.cn/psb?/V10eOOb30eRKzr/WflmCTYgz.7tHgP88sO7ihxZkBVa1SkHzz33QNNgTaU!/b/dAsBAAAAAAAA&bo=NwErAAAAAAAFAD4!&rf=viewer_4">
+<meta property="og:image" content="http://a1.qpic.cn/psb?/V10eOOb30eRKzr/.DX9MN27N1lVhTQ0UwmltcrAiOi*z.Sz3jcFW347lWw!/b/dAsBAAAAAAAA&bo=UgAfAAAAAAAFAG4!&rf=viewer_4">
+<meta property="og:image" content="http://a1.qpic.cn/psb?/V10eOOb30eRKzr/7hsepBISCPbNPTvebuz.3ZhN1ARu*olZxQataolzHPk!/b/dHEBAAAAAAAA&bo=1QA*AAAAAAAFAMk!&rf=viewer_4">
+<meta property="og:image" content="http://a1.qpic.cn/psb?/V10eOOb30eRKzr/OxhqpcIn8Y27Go7pqyyCWBqjKLCu9LqQcRCeQXcrtew!/b/dAsBAAAAAAAA&bo=rgAsAAAAAAAFAKE!&rf=viewer_4">
+<meta property="og:image" content="http://a3.qpic.cn/psb?/V10eOOb30eRKzr/nrOMMpgWNy3Db8WUcFGu1sAlRigMmyU0dZvqxAu26xQ!/b/dHABAAAAAAAA&bo=8AAkAAAAAAAFAPc!&rf=viewer_4">
+<meta property="og:image" content="http://a3.qpic.cn/psb?/V10eOOb30eRKzr/yThMDvnNpy0jJ0.EGC*maIFBI1NsdEEGd1fIIOfWamU!/b/dOMAAAAAAAAA&bo=RgEvAAAAAAAFAEs!&rf=viewer_4">
+<meta property="og:image" content="http://a3.qpic.cn/psb?/V10eOOb30eRKzr/is0wc4CppZJSV4xt28ayJaOxa9k0hPx5FruoHaODPU8!/b/dA0BAAAAAAAA&bo=NAEyAAAAAAAFACQ!&rf=viewer_4">
+<meta property="og:image" content="http://a1.qpic.cn/psb?/V10eOOb30eRKzr/zeCGWq7FD.Db.97yQIbvO4U2lk9h3hhFY104xCapJEQ!/b/dOEAAAAAAAAA&bo=eQE1AAAAAAAFAG4!&rf=viewer_4">
+<meta property="og:image" content="http://a1.qpic.cn/psb?/V10eOOb30eRKzr/ptKsbiRh3KqGIHZDnvsxxEr4g7T7ENSRLb3JpPRsgLs!/b/dOQAAAAAAAAA&bo=1wEzAAAAAAAFB8E!&rf=viewer_4">
+<meta property="og:updated_time" content="2016-08-13T08:57:02.103Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="郭剑威的小博客">
-<meta name="twitter:description" content="记录！记录！记录！">
+<meta name="twitter:description" content="CSK跟踪算法的梳理##CSK算法
+
+CSK是2012年ECCV发表的一篇非常高效的运动跟踪文章（150FPS左右），其分析是在灰度空间上进行的。原文名称：《Exploiting the Circulant Structure ofTracking-by-detection with Kernels》。代码在作者主页可以下载到。毕竟文章是2012年发表的，肯定有他的缺陷，如果想看最新进展移步CN算">
+<meta name="twitter:image" content="http://b143.photo.store.qq.com/psb?/V10eOOb30eRKzr/vMmKGCSrVB3jUoYz7Psj0C8CRId.r5M9ddhdqcXXdNQ!/b/dI8AAAAAAAAA&bo=NwOAAgAAAAAFB5I!&rf=viewer_4">
   
     <link rel="alternate" href="/atom.xml" title="郭剑威的小博客" type="application/atom+xml">
   
@@ -66,9 +92,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-160823CSK" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-160823CSK" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/08/13/160823CSK/" class="article-date">
   <time datetime="2016-08-13T01:50:45.347Z" itemprop="datePublished">2016-08-13</time>
@@ -121,99 +145,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-helloWorld" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/08/13/helloWorld/" class="article-date">
-  <time datetime="2016-08-13T01:23:10.000Z" itemprop="datePublished">2016-08-13</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/日志/">日志</a>►<a class="article-category-link" href="/categories/日志/二级记录/">二级记录</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/13/helloWorld/">helloWorld</a>
-    </h1>
+    <a href="/2016/08/13/helloWorld/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">helloWorld</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>摘要：测试</p>
-<p>正文：第一个用来测试的自己编写的markdown文档</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://D-S-William-Guo.github.io/2016/08/13/helloWorld/" data-id="cirsybvgw0002fsowpcte7o9v" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/">test</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/try/">try</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/08/13/hello-world/" class="article-date">
-  <time datetime="2016-08-13T00:54:25.215Z" itemprop="datePublished">2016-08-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/13/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://D-S-William-Guo.github.io/2016/08/13/hello-world/" data-id="cirsybvgm0001fsowp83ohp6w" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 </section>
         
