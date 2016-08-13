@@ -15,31 +15,31 @@ CSK是2012年ECCV发表的一篇非常高效的运动跟踪文章（150FPS左右
 <meta property="og:description" content="CSK跟踪算法的梳理##CSK算法
 
 CSK是2012年ECCV发表的一篇非常高效的运动跟踪文章（150FPS左右），其分析是在灰度空间上进行的。原文名称：《Exploiting the Circulant Structure ofTracking-by-detection with Kernels》。代码在作者主页可以下载到。毕竟文章是2012年发表的，肯定有他的缺陷，如果想看最新进展移步CN算">
-<meta property="og:image" content="http://b143.photo.store.qq.com/psb?/V10eOOb30eRKzr/vMmKGCSrVB3jUoYz7Psj0C8CRId.r5M9ddhdqcXXdNQ!/b/dI8AAAAAAAAA&bo=NwOAAgAAAAAFB5I!&rf=viewer_4">
-<meta property="og:image" content="http://b227.photo.store.qq.com/psb?/V10eOOb30eRKzr/VytJukOFh6OpwR2V25GLelK38uyjK2FnwequLmYQw8o!/b/dOMAAAAAAAAA&bo=YQEhAAAAAAAFB2U!&rf=viewer_4">
-<meta property="og:image" content="http://a2.qpic.cn/psb?/V10eOOb30eRKzr/jgwacTMBpEYwmPLattE9w*ljoR3G7TBmN3pHn1LdIsY!/b/dAwBAAAAAAAA&bo=rQE8AAAAAAAFALM!&rf=viewer_4">
-<meta property="og:image" content="http://a3.qpic.cn/psb?/V10eOOb30eRKzr/hpM0ExzsLBCwUfzWnO9KieSDo8BbAeluEc1CAAxSb2I!/b/dHABAAAAAAAA&bo=eAAeAAAAAAAFAEU!&rf=viewer_4">
-<meta property="og:image" content="http://a3.qpic.cn/psb?/V10eOOb30eRKzr/YwKtDka9E07kWrLHsEoljTVx4s*eJ34xeAzEEvXZYtQ!/b/dHMBAAAAAAAA&bo=ewAdAAAAAAAFAEU!&rf=viewer_4">
-<meta property="og:image" content="http://a3.qpic.cn/psb?/V10eOOb30eRKzr/1yG0n4J*zki.6sDQzZDBZJPdqv1JQSso3ms9fU2Ekcc!/b/dHABAAAAAAAA&bo=pgAqAAAAAAAFAK8!&rf=viewer_4">
-<meta property="og:image" content="http://a2.qpic.cn/psb?/V10eOOb30eRKzr/8PSwSMfWReIPYcnoNFOgBUcfFv.ZxYMhcq*s57MPf30!/b/dAwBAAAAAAAA&bo=KAGJAAAAAAAFAIM!&rf=viewer_4">
-<meta property="og:image" content="http://a2.qpic.cn/psb?/V10eOOb30eRKzr/cP9X*g.buG9o9JoYtMeUBvrpQPb**60HH6Ijy7p5sCc!/b/dHIBAAAAAAAA&bo=BgEsAAAAAAAFAAg!&rf=viewer_4">
-<meta property="og:image" content="http://a2.qpic.cn/psb?/V10eOOb30eRKzr/wQ51w*QZuIVMib8nzrqA0btGqFI7jbugSNEdChL2rvQ!/b/dOUAAAAAAAAA&bo=.QApAAAAAAAFAPM!&rf=viewer_4">
-<meta property="og:image" content="http://a1.qpic.cn/psb?/V10eOOb30eRKzr/WflmCTYgz.7tHgP88sO7ihxZkBVa1SkHzz33QNNgTaU!/b/dAsBAAAAAAAA&bo=NwErAAAAAAAFAD4!&rf=viewer_4">
-<meta property="og:image" content="http://a1.qpic.cn/psb?/V10eOOb30eRKzr/.DX9MN27N1lVhTQ0UwmltcrAiOi*z.Sz3jcFW347lWw!/b/dAsBAAAAAAAA&bo=UgAfAAAAAAAFAG4!&rf=viewer_4">
-<meta property="og:image" content="http://a1.qpic.cn/psb?/V10eOOb30eRKzr/7hsepBISCPbNPTvebuz.3ZhN1ARu*olZxQataolzHPk!/b/dHEBAAAAAAAA&bo=1QA*AAAAAAAFAMk!&rf=viewer_4">
-<meta property="og:image" content="http://a1.qpic.cn/psb?/V10eOOb30eRKzr/OxhqpcIn8Y27Go7pqyyCWBqjKLCu9LqQcRCeQXcrtew!/b/dAsBAAAAAAAA&bo=rgAsAAAAAAAFAKE!&rf=viewer_4">
-<meta property="og:image" content="http://a3.qpic.cn/psb?/V10eOOb30eRKzr/nrOMMpgWNy3Db8WUcFGu1sAlRigMmyU0dZvqxAu26xQ!/b/dHABAAAAAAAA&bo=8AAkAAAAAAAFAPc!&rf=viewer_4">
-<meta property="og:image" content="http://a3.qpic.cn/psb?/V10eOOb30eRKzr/yThMDvnNpy0jJ0.EGC*maIFBI1NsdEEGd1fIIOfWamU!/b/dOMAAAAAAAAA&bo=RgEvAAAAAAAFAEs!&rf=viewer_4">
-<meta property="og:image" content="http://a3.qpic.cn/psb?/V10eOOb30eRKzr/is0wc4CppZJSV4xt28ayJaOxa9k0hPx5FruoHaODPU8!/b/dA0BAAAAAAAA&bo=NAEyAAAAAAAFACQ!&rf=viewer_4">
-<meta property="og:image" content="http://a1.qpic.cn/psb?/V10eOOb30eRKzr/zeCGWq7FD.Db.97yQIbvO4U2lk9h3hhFY104xCapJEQ!/b/dOEAAAAAAAAA&bo=eQE1AAAAAAAFAG4!&rf=viewer_4">
-<meta property="og:image" content="http://a1.qpic.cn/psb?/V10eOOb30eRKzr/ptKsbiRh3KqGIHZDnvsxxEr4g7T7ENSRLb3JpPRsgLs!/b/dOQAAAAAAAAA&bo=1wEzAAAAAAAFB8E!&rf=viewer_4">
-<meta property="og:updated_time" content="2016-08-13T08:57:02.103Z">
+<meta property="og:image" content="http://i.imgur.com/e6ONNGy.jpg">
+<meta property="og:image" content="http://i.imgur.com/qy9798p.jpg">
+<meta property="og:image" content="http://i.imgur.com/UYIldyO.jpg">
+<meta property="og:image" content="http://i.imgur.com/uvW8LEl.jpg">
+<meta property="og:image" content="http://i.imgur.com/NKvdkdN.jpg">
+<meta property="og:image" content="http://i.imgur.com/YbnPCNE.jpg">
+<meta property="og:image" content="http://i.imgur.com/va9fpZP.jpg">
+<meta property="og:image" content="http://i.imgur.com/6nPIyCN.jpg">
+<meta property="og:image" content="http://i.imgur.com/1WMvDhF.jpg">
+<meta property="og:image" content="http://i.imgur.com/1vpFE3B.jpg">
+<meta property="og:image" content="http://i.imgur.com/CHCctqS.jpg">
+<meta property="og:image" content="http://i.imgur.com/wL8joRP.jpg">
+<meta property="og:image" content="http://i.imgur.com/4MG6BGA.jpg">
+<meta property="og:image" content="http://i.imgur.com/GfqCLyU.jpg">
+<meta property="og:image" content="http://i.imgur.com/f5Sl6kd.jpg">
+<meta property="og:image" content="http://i.imgur.com/JvZO01m.jpg">
+<meta property="og:image" content="http://i.imgur.com/gqN3Zmn.jpg">
+<meta property="og:image" content="http://i.imgur.com/FIB2eKw.jpg">
+<meta property="og:updated_time" content="2016-08-13T09:17:32.427Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="郭剑威的小博客">
 <meta name="twitter:description" content="CSK跟踪算法的梳理##CSK算法
 
 CSK是2012年ECCV发表的一篇非常高效的运动跟踪文章（150FPS左右），其分析是在灰度空间上进行的。原文名称：《Exploiting the Circulant Structure ofTracking-by-detection with Kernels》。代码在作者主页可以下载到。毕竟文章是2012年发表的，肯定有他的缺陷，如果想看最新进展移步CN算">
-<meta name="twitter:image" content="http://b143.photo.store.qq.com/psb?/V10eOOb30eRKzr/vMmKGCSrVB3jUoYz7Psj0C8CRId.r5M9ddhdqcXXdNQ!/b/dI8AAAAAAAAA&bo=NwOAAgAAAAAFB5I!&rf=viewer_4">
+<meta name="twitter:image" content="http://i.imgur.com/e6ONNGy.jpg">
   
     <link rel="alternate" href="/atom.xml" title="郭剑威的小博客" type="application/atom+xml">
   
@@ -108,22 +108,22 @@ CSK是2012年ECCV发表的一篇非常高效的运动跟踪文章（150FPS左右
 <blockquote>
 <p>CSK是2012年ECCV发表的一篇非常高效的运动跟踪文章（150FPS左右），其分析是在灰度空间上进行的。原文名称：<em>《Exploiting the Circulant Structure of<br>Tracking-by-detection with Kernels》</em>。代码在<a href="http://www.robots.ox.ac.uk/~joao/circulant/index.html" target="_blank" rel="external">作者主页</a>可以下载到。毕竟文章是2012年发表的，肯定有他的缺陷，如果想看最新进展移步<a href="http://www.cvl.isy.liu.se/research/objrec/visualtracking/colvistrack/index.html" target="_blank" rel="external">CN算法主页</a>找到发表在CVPR2014上的<em>《Adaptive Color Attributes for Real-Time Visual Tracking》</em></p>
 </blockquote>
-<h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><p><img src="http://b143.photo.store.qq.com/psb?/V10eOOb30eRKzr/vMmKGCSrVB3jUoYz7Psj0C8CRId.r5M9ddhdqcXXdNQ!/b/dI8AAAAAAAAA&amp;bo=NwOAAgAAAAAFB5I!&amp;rf=viewer_4" alt="算法图片"></p>
+<h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><p><img src="http://i.imgur.com/e6ONNGy.jpg" alt=""></p>
 <hr>
 <p>作者算法原理简洁明了，从字面上看，需要计算 核函数K、快速训练、以及得到的相应。因此接下来分析文章中每个式子用来分析和得到什么。</p>
-<h3 id="1-alpha"><a href="#1-alpha" class="headerlink" title="1. alpha"></a>1. alpha</h3><p>首先，作者利用的是正则化最小二乘法(RLS)，用这个东西的原因是选择一个分类器。众所周知，分类器本身的定义是为了找到分开两类点的一个超平面。故有输入类似（xi,yi）这样的点。SVM的原理和式子<br><img src="http://b227.photo.store.qq.com/psb?/V10eOOb30eRKzr/VytJukOFh6OpwR2V25GLelK38uyjK2FnwequLmYQw8o!/b/dOMAAAAAAAAA&amp;bo=YQEhAAAAAAAFB2U!&amp;rf=viewer_4" alt="SVM"></p>
-<p>这其中包括了Loss Function<img src="http://a2.qpic.cn/psb?/V10eOOb30eRKzr/jgwacTMBpEYwmPLattE9w*ljoR3G7TBmN3pHn1LdIsY!/b/dAwBAAAAAAAA&amp;bo=rQE8AAAAAAAFALM!&amp;rf=viewer_4" alt=""> 其实是为了找到最小的W，这样能得到最大的超平面。</p>
-<p>利用Kernel Trick <img src="http://a3.qpic.cn/psb?/V10eOOb30eRKzr/hpM0ExzsLBCwUfzWnO9KieSDo8BbAeluEc1CAAxSb2I!/b/dHABAAAAAAAA&amp;bo=eAAeAAAAAAAFAEU!&amp;rf=viewer_4" alt="">有助于提升过程中的效果，故此定义核函数k(x,x’) = &lt;ψ(x),ψ(x’)&gt;,在这里ψ(x)表示分类的x提升至多维特征空间。</p>
-<p>最终，因为应用的RLS，所以原分类器得到的最小权值W转化为<img src="http://a3.qpic.cn/psb?/V10eOOb30eRKzr/YwKtDka9E07kWrLHsEoljTVx4s*eJ34xeAzEEvXZYtQ!/b/dHMBAAAAAAAA&amp;bo=ewAdAAAAAAAFAEU!&amp;rf=viewer_4" alt="">。</p>
-<p>根据RLS可知，对W的求解其实也就是求得其中的    α 阵。<img src="http://a3.qpic.cn/psb?/V10eOOb30eRKzr/1yG0n4J*zki.6sDQzZDBZJPdqv1JQSso3ms9fU2Ekcc!/b/dHABAAAAAAAA&amp;bo=pgAqAAAAAAAFAK8!&amp;rf=viewer_4" alt=""></p>
-<h4 id="1-1-循环矩阵"><a href="#1-1-循环矩阵" class="headerlink" title="1.1. 循环矩阵"></a>1.1. 循环矩阵</h4><p>循环矩阵的定义C(u)是有nx1的向量u循环漂移一个元素得到的<br><img src="http://a2.qpic.cn/psb?/V10eOOb30eRKzr/8PSwSMfWReIPYcnoNFOgBUcfFv.ZxYMhcq*s57MPf30!/b/dAwBAAAAAAAA&amp;bo=KAGJAAAAAAAFAIM!&amp;rf=viewer_4" alt=""><br>由向量卷积定理以及在循环矩阵上的定理描述，这个卷积过程与我们在评估不同子窗口是否是跟踪窗口的过程类似<img src="http://a2.qpic.cn/psb?/V10eOOb30eRKzr/cP9X*g.buG9o9JoYtMeUBvrpQPb**60HH6Ijy7p5sCc!/b/dHIBAAAAAAAA&amp;bo=BgEsAAAAAAAFAAg!&amp;rf=viewer_4" alt=""></p>
-<h4 id="1-2-核的引入"><a href="#1-2-核的引入" class="headerlink" title="1.2. 核的引入"></a>1.2. 核的引入</h4><p>输入图 X（n x n）是由 n 个 n x 1 的向量 xi 组成的，X(x0,x1,…,xn-1),<img src="http://a2.qpic.cn/psb?/V10eOOb30eRKzr/wQ51w*QZuIVMib8nzrqA0btGqFI7jbugSNEdChL2rvQ!/b/dOUAAAAAAAAA&amp;bo=.QApAAAAAAAFAPM!&amp;rf=viewer_4" alt=""><br>又有定义，若 k 是一个酉空间不变的内核,则阵K拥有元素<img src="http://a1.qpic.cn/psb?/V10eOOb30eRKzr/WflmCTYgz.7tHgP88sO7ihxZkBVa1SkHzz33QNNgTaU!/b/dAsBAAAAAAAA&amp;bo=NwErAAAAAAAFAD4!&amp;rf=viewer_4" alt="">是循环矩阵。<br>k代表了核矩阵<img src="http://a1.qpic.cn/psb?/V10eOOb30eRKzr/.DX9MN27N1lVhTQ0UwmltcrAiOi*z.Sz3jcFW347lWw!/b/dAsBAAAAAAAA&amp;bo=UgAfAAAAAAAFAG4!&amp;rf=viewer_4" alt=""><strong>（P.S. k是n x 1向量，K是n x n阵）</strong></p>
-<h4 id="1-3-综合计算alpha"><a href="#1-3-综合计算alpha" class="headerlink" title="1.3. 综合计算alpha"></a>1.3. 综合计算alpha</h4><p>根据以上的推导以及循环矩阵和核函数的性质，得到   <img src="http://a1.qpic.cn/psb?/V10eOOb30eRKzr/7hsepBISCPbNPTvebuz.3ZhN1ARu*olZxQataolzHPk!/b/dHEBAAAAAAAA&amp;bo=1QA*AAAAAAAFAMk!&amp;rf=viewer_4" alt="">。</p>
+<h3 id="1-alpha"><a href="#1-alpha" class="headerlink" title="1. alpha"></a>1. alpha</h3><p>首先，作者利用的是正则化最小二乘法(RLS)，用这个东西的原因是选择一个分类器。众所周知，分类器本身的定义是为了找到分开两类点的一个超平面。故有输入类似（xi,yi）这样的点。SVM的原理和式子<br><img src="http://i.imgur.com/qy9798p.jpg" alt=""></p>
+<p>这其中包括了Loss Function<img src="http://i.imgur.com/UYIldyO.jpg" alt=""> 其实是为了找到最小的W，这样能得到最大的超平面。</p>
+<p>利用Kernel Trick <img src="http://i.imgur.com/uvW8LEl.jpg" alt="">有助于提升过程中的效果，故此定义核函数k(x,x’) = &lt;ψ(x),ψ(x’)&gt;,在这里ψ(x)表示分类的x提升至多维特征空间。</p>
+<p>最终，因为应用的RLS，所以原分类器得到的最小权值W转化为<img src="http://i.imgur.com/NKvdkdN.jpg" alt=""></p>
+<p>根据RLS可知，对W的求解其实也就是求得其中的    α 阵。<img src="http://i.imgur.com/YbnPCNE.jpg" alt=""></p>
+<h4 id="1-1-循环矩阵"><a href="#1-1-循环矩阵" class="headerlink" title="1.1. 循环矩阵"></a>1.1. 循环矩阵</h4><p>循环矩阵的定义C(u)是有nx1的向量u循环漂移一个元素得到的<br><img src="http://i.imgur.com/va9fpZP.jpg" alt=""><br>由向量卷积定理以及在循环矩阵上的定理描述，这个卷积过程与我们在评估不同子窗口是否是跟踪窗口的过程类似<img src="http://i.imgur.com/6nPIyCN.jpg" alt=""></p>
+<h4 id="1-2-核的引入"><a href="#1-2-核的引入" class="headerlink" title="1.2. 核的引入"></a>1.2. 核的引入</h4><p>输入图 X（n x n）是由 n 个 n x 1 的向量 xi 组成的，X(x0,x1,…,xn-1),<img src="http://i.imgur.com/1WMvDhF.jpg" alt=""><br>又有定义，若 k 是一个酉空间不变的内核,则阵K拥有元素<img src="http://i.imgur.com/1vpFE3B.jpg" alt="">是循环矩阵。<br>k代表了核矩阵<img src="http://i.imgur.com/CHCctqS.jpg" alt=""><strong>（P.S. k是n x 1向量，K是n x n阵）</strong></p>
+<h4 id="1-3-综合计算alpha"><a href="#1-3-综合计算alpha" class="headerlink" title="1.3. 综合计算alpha"></a>1.3. 综合计算alpha</h4><p>根据以上的推导以及循环矩阵和核函数的性质，得到   <img src="http://i.imgur.com/wL8joRP.jpg" alt="">。</p>
 <h3 id="2-快速检测"><a href="#2-快速检测" class="headerlink" title="2. 快速检测"></a>2. 快速检测</h3><p>根据分类器的一般定义，通过输入图像Z得到相应位置Y’的式子为：</p>
-<p><img src="http://a1.qpic.cn/psb?/V10eOOb30eRKzr/OxhqpcIn8Y27Go7pqyyCWBqjKLCu9LqQcRCeQXcrtew!/b/dAsBAAAAAAAA&amp;bo=rgAsAAAAAAAFAKE!&amp;rf=viewer_4" alt=""><br>我们通过上面的式子可以推导出<br><img src="http://a3.qpic.cn/psb?/V10eOOb30eRKzr/nrOMMpgWNy3Db8WUcFGu1sAlRigMmyU0dZvqxAu26xQ!/b/dHABAAAAAAAA&amp;bo=8AAkAAAAAAAFAPc!&amp;rf=viewer_4" alt=""></p>
-<h3 id="3-核函数RBF"><a href="#3-核函数RBF" class="headerlink" title="3. 核函数RBF"></a>3. 核函数RBF</h3><p>采用径向基函数，公式为<img src="http://a3.qpic.cn/psb?/V10eOOb30eRKzr/yThMDvnNpy0jJ0.EGC*maIFBI1NsdEEGd1fIIOfWamU!/b/dOMAAAAAAAAA&amp;bo=RgEvAAAAAAAFAEs!&amp;rf=viewer_4" alt="">展开为<br><img src="http://a3.qpic.cn/psb?/V10eOOb30eRKzr/is0wc4CppZJSV4xt28ayJaOxa9k0hPx5FruoHaODPU8!/b/dA0BAAAAAAAA&amp;bo=NAEyAAAAAAAFACQ!&amp;rf=viewer_4" alt="">  </p>
-<p>再利用FFT和IFFT进行计算简化：<img src="http://a1.qpic.cn/psb?/V10eOOb30eRKzr/zeCGWq7FD.Db.97yQIbvO4U2lk9h3hhFY104xCapJEQ!/b/dOEAAAAAAAAA&amp;bo=eQE1AAAAAAAFAG4!&amp;rf=viewer_4" alt=""></p>
-<p>最终套用高斯核函数：<br><img src="http://a1.qpic.cn/psb?/V10eOOb30eRKzr/ptKsbiRh3KqGIHZDnvsxxEr4g7T7ENSRLb3JpPRsgLs!/b/dOQAAAAAAAAA&amp;bo=1wEzAAAAAAAFB8E!&amp;rf=viewer_4" alt=""></p>
+<p><img src="http://i.imgur.com/4MG6BGA.jpg" alt=""><br>我们通过上面的式子可以推导出<br><img src="http://i.imgur.com/GfqCLyU.jpg" alt=""></p>
+<h3 id="3-核函数RBF"><a href="#3-核函数RBF" class="headerlink" title="3. 核函数RBF"></a>3. 核函数RBF</h3><p>采用径向基函数，公式为<img src="http://i.imgur.com/f5Sl6kd.jpg" alt="">展开为<br><img src="http://i.imgur.com/JvZO01m.jpg" alt=""></p>
+<p>再利用FFT和IFFT进行计算简化：<img src="http://i.imgur.com/gqN3Zmn.jpg" alt=""></p>
+<p>最终套用高斯核函数：<br><img src="http://i.imgur.com/FIB2eKw.jpg" alt=""></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>CSK拥有很快速的原理，其实推导过程非常的苦难，必须有扎实的数学功底。我只是能通过所有作者的文章的引用，以及国内优秀博客文章的总结明白他的推导。至于实现就像作者图片标识的一样，三步出结果。</p>
 <p>如CSK文章的标题所示，CSK使用了循环结构进行相邻帧的相关性检测。所谓的循环结构，其实质是两帧在频域上进行点乘操作，即两帧在时域上做卷积。在以前的运动跟踪，相关性检测都是使用滑窗法完成的，若窗的滑动步长为1，即可看作是两帧之间做卷积。但在时域上做卷积的运算量是非常惊人的，而在频域上做点乘，运算量则小得多，因而CSK使用的循环结构在频域上做分析，则能很好地提速。</p>
 <blockquote>
