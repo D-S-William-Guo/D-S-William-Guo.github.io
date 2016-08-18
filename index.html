@@ -68,6 +68,51 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-160818CN" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/18/160818CN/" class="article-date">
+  <time datetime="2016-08-18T08:12:05.000Z" itemprop="datePublished">2016-08-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/学术/">学术</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/18/160818CN/">CN算法的日记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#目的#<br>文章的主要目的在于今后能回想对CN算法的原理。CN算法（Adaptive Color Attributes for Real-Time Visual Tracking）是对2012年ECCV上的CSK算法进行的修改，主要是考虑CSK只是利用空间灰度信息来扫描窗口的，故此在2014年CVPR上作者把一个颜色应用加到了CSK算法上，并且把模版更新策略调整成为跟2010年MOSSE算法一样——即考虑之前视频对当前帧的影响，并不是仅仅用当上一帧跟当前帧操作。</p>
+<p>算法的大体流程在上一篇CSK中已经介绍，主要的贡献在于加入了一个颜色名称，有11个颜色来对跟踪区域做特征抓取，并且利用PCA对数据进行降维，最后形成了一个2维颜色特征。因为颜色特征的低维，所以对原算法的FPS并未造成很大的影响。</p>
+<p>具体实验仅测试基于2013年object tracking benchmark数据库中的coke bird1 biker deer四组图像（当然作者有自己的数据库，在本人页面下载）。具体的测试结果相较于CSK在biker（突变） bird1（遮挡）上的事物跟踪丢失情况，CN也并未做出太大的改变。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://D-S-William-Guo.github.io/2016/08/18/160818CN/" data-id="cis02ezvj00002oowgd65lhfh" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CN，Correlation-Filters，目标跟踪，日记/">CN，Correlation Filters，目标跟踪，日记</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-160823CSK" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/08/13/160823CSK/" class="article-date">
@@ -223,7 +268,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/日志/">日志</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/日志/二级记录/">二级记录</a></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/学术/">学术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/日志/">日志</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/日志/二级记录/">二级记录</a></li></ul></li></ul>
     </div>
   </div>
 
@@ -233,7 +278,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/try/">try</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CN，Correlation-Filters，目标跟踪，日记/">CN，Correlation Filters，目标跟踪，日记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/try/">try</a></li></ul>
     </div>
   </div>
 
@@ -243,7 +288,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/try/" style="font-size: 10px;">try</a>
+      <a href="/tags/CN，Correlation-Filters，目标跟踪，日记/" style="font-size: 10px;">CN，Correlation Filters，目标跟踪，日记</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/try/" style="font-size: 10px;">try</a>
     </div>
   </div>
 
@@ -263,6 +308,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/08/18/160818CN/">CN算法的日记</a>
+          </li>
         
           <li>
             <a href="/2016/08/13/160823CSK/">(no title)</a>
